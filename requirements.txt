@@ -1,0 +1,11 @@
+sqlalchemy
+pillow
+tornado
+pypinyin
+redis
+stringgenerator
+requests
+gcm
+ppmessage-mqtt
+paho-mqtt
+pymysql

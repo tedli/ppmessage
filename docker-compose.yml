@@ -1,0 +1,31 @@
+version: '2'
+
+services:
+
+  ppmessage:
+    build:
+      context: .
+      dockerfile: ssh.dockerfile
+    ports:
+     - 8945:8945
+     - 8822:8822
+    depends_on:
+     - redis
+     - mysql
+    links:
+     - redis
+     - mysql
+    environment:
+      REDIS_HOST: redis
+
+  redis:
+    image: redis
+
+  mysql:
+    image: mysql
+    environment:
+      MYSQL_ROOT_PASSWORD: 123456
+      MYSQL_DATABASE: ppmessage
+      MYSQL_USER: ppmessage
+      MYSQL_PASSWORD: 123456
+    command: [--character-set-server=utf8mb4, --collation-server=utf8mb4_unicode_ci]

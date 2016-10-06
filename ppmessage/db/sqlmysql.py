@@ -54,7 +54,7 @@ class SqlInstance(SqlNone):
         return SQL.MYSQL
     
     def createEngine(self):
-        db_string = "mysql+pymysql://%s:%s@%s:%s/%s" % \
+        db_string = "mysql+pymysql://%s:%s@%s:%s/%s?charset=utf8mb4" % \
                     (self.db_user, 
                      self.db_pass,
                      self.db_host,

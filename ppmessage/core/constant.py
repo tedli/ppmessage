@@ -7,6 +7,9 @@
 # core/constant.py
 #
 
+import os
+
+
 def enum(*sequential, **named):
     enums = dict(zip(sequential, range(len(sequential))), **named)
     return type('Enum', (), enums)
@@ -348,7 +351,7 @@ FILEUPLOAD_PORT = 8928
 CACHE_HOST = "127.0.0.1"
 CACHE_PORT = 8929
 
-REDIS_HOST = "127.0.0.1"
+REDIS_HOST = os.getenv("REDIS_HOST", "redis")
 REDIS_PORT = 6379
 
 OAUTH_HOST = "127.0.0.1"
